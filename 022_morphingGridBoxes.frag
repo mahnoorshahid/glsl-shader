@@ -10,9 +10,17 @@ uniform vec2 u_resolution;
 uniform sampler2D u_text0;
 uniform vec2 u_mouse;
 
+
+mat2 rotate(float angle){
+  return mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
+}
+
+
 void main(){
   vec2 coord = gl_FragCoord.xy * 1.0 - u_resolution;
     vec2 muv = u_mouse / u_resolution; 
+
+     // coord = rotate(0.09 * u_time) * coord;
   //REALLY COOL EFFECT
   //vec3 color = vec3(float(coord.x / 0.1), sin(u_time/ 5.), 2. * coord / -70.);
   ///vec3 color = vec3(float(coord.x / 0.1), sin(u_time/ 5.), 2. * length(coord + 20.)/10. +cos(u_time/ 5.) -100.);
