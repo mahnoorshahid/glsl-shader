@@ -82,7 +82,7 @@ color = vec3(0.0, 0.0, 0.0);
 
   
   float angle = atan(-coord.y + 25., coord.x - 9.5) * 0.6;
-    float len = length(coord - vec2(- 900.5, - 900.5));
+    float len = length(coord - vec2(- 600.5, - 600.5));
   // len = length(coord.y - vec2(- 0.5, - 0.5));
   // len = length(coord.x - vec2(0.5, - 0.5));
 
@@ -99,10 +99,10 @@ color = vec3(0.0, 0.0, 0.0);
   coord = rotate(0.09 * u_time) * coord;
   //multiple with diff number to get a more defined line
   vec2 pos = vec2(coord* 4.);
- //float n = noise(pos + sin(u_time) + cos(u_time));
+  //float n = noise(pos + sin(u_time) + cos(u_time));
 
-float size = (sin(u_time * 0.03) * 0.5 + 0.5) * 0.3;
-size = (noise(vec2(u_time * 0.04)) * 0.5 + 0.5);
+  float size = (sin(u_time * 0.03) * 0.5 + 0.5) * 0.3;
+  size = (noise(vec2(u_time * 0.04)) * 0.5 + 0.5);
 
 
 //float mouse = (0.7 / sin(coord.y + u_time + muv) / 8., 0.4 / sin(coord.x + u_time + 0.3) + 1.6);
@@ -118,8 +118,8 @@ size = (noise(vec2(u_time * 0.04)) * 0.5 + 0.5);
   ///SAHDER ONE KEEP IT - changed size to coord.xy
   //******SHADER********
    color += abs(cos(size / 9.0 ) + sin(coord.x / 80.0) - cos(size/ 0.4) * sin(size/ 0.5)) * 3. ;
-  //MOOUSE
-
+  
+  //MOUSE
     //color += abs(cos(coord.x / 10.0) + sin(coord.y / 10.0) - cos(u_time / 0.4) * sin(u_time/ 0.5)) * 3.;
     //******stage one - SHADER********
     color += abs(cos(coord.x / 20.0 ) + sin(coord.y / 20.0) - cos(u_time / 0.4) * sin(u_time/ 0.5)) * 3.;
@@ -127,7 +127,7 @@ size = (noise(vec2(u_time * 0.04)) * 0.5 + 0.5);
    //vec2 test = vec2(coord.x / coord.x);
  
     coord += vec2(0.9 / muv.x * sin(muv.x * coord.y+ u_time + 0.3 * muv.x) + 0.8, 0.4 / muv.x * sin(coord.x + u_time + 0.3 * muv.x) + 1.6) * 3. + muv.y;
-      coord += vec2(0.9 / coord.y * sin(coord.x * coord.y+ u_time + 0.3 * coord.x) + 0.8, 0.4 * sin(coord.x + u_time + 0.3 * muv.x) + 1.6) * 3. + muv.y;
+      coord += vec2(5./ coord.y * sin(coord.x * coord.y+ u_time + 0.3 * coord.x) + 0.8, 0.4 * sin(coord.x + u_time + 0.3 * muv.x) + 1.6) * 3. + muv.y;
      //coord += vec2(0.9 / coord.y * sin(coord.x * n + u_time + 0.3 * n) + 0.8, 0.4 * sin(coord.x + u_time + 0.3 * muv.x) + 1.6) * 3. + muv.y;
 
   
