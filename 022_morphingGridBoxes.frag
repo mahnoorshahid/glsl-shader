@@ -47,7 +47,7 @@ void main(){
      float n = noise(coord + sin(u_time) + cos(u_time));
 
 
-//coord = rotate(0.09 * u_time) * coord;
+coord = rotate(0.09 * u_time) * coord;
 
   //REALLY COOL EFFECT
   //vec3 color = vec3(float(coord.x / 0.1), sin(u_time/ 5.), 2. * coord / -70.);
@@ -65,35 +65,35 @@ vec2 translate = vec2(-0.5);
 
   //COOOL EFFECT
   color += abs(cos(coord.x / 70.0) + sin(coord.y / 70.0) - cos(u_time) * sin(u_time/ 1.)) * 10.;
-   color += abs(cos(coord.x / 10.0 ) + sin(coord.y / 10.0) - cos(u_time / 0.4) * sin(u_time/ 0.5)) * 3.;
+   color += abs(cos(coord.x / 50.0 ) + sin(coord.y / 50.0) - cos(u_time / 0.4) * sin(u_time/ 0.5)) * 3.;
   
   
   
    
   float angle = atan(-coord.y + 25., coord.x - 9.5) * 0.6;
     float len = length(coord - vec2(- 600.5, - 600.5));
-  // len = length(coord.y - vec2(- 0.5, - 0.5));
+   len = length(coord.y - vec2(- 0.5, - 0.5));
   // len = length(coord.x - vec2(0.5, - 0.5));
 
 //COOL EFFECT one
-   // color.b+= sin(len * 0.04 + angle * 90.+ u_time);
+    color.b+= sin(len * 0.04 + angle * 90.+ u_time);
    color.g+= sin(len * 0.04 + angle - 90.+ u_time);
-    color.g+= sin(len * -0.04 + angle - 90.+ u_time);
-  color.r+= sin(len * -0.07 + angle * 0.09+ u_time);
+   // color.g+= sin(len * -0.04 + angle - 90.+ u_time);
+  //color.r+= sin(len * -0.07 + angle * 0.09+ u_time);
 
-    color.g+= sin(len * 0.04 + angle - 0.09+ u_time);
-  //   color.g+= sin(len * -0.04 + angle - 90.+ u_time);
+  // color.g+= sin(len * 0.04 + angle - 0.09+ u_time);
+    color.g+= sin(len * -0.04 + angle - 90.+ u_time);
   // color.r+= sin(len * -0.07 + angle * 0.09+ u_time);
   //RGB
    // color.r += abs(0.1 + length(coord) - 0.1 * abs(sin(u_time * 0.9 / 0.0)));
- // color.r+= sin(len * 0.07 + angle * 90.+ u_time);
+  color.r+= sin(len * 0.07 + angle * 90.+ u_time);
 //color.r+= sin(len * 0.07 + angle * 90.+ u_time);
 //COOL EFFECT 2
-   //color.g += abs(0.1 + length(coord) - 0.2 * abs(sin(u_time * 0.9 / 4.0)));
+   color.g += abs(0.1 + length(coord) - 0.2 * abs(sin(u_time * 0.9 / 4.0)));
   //color += abs(0.1 + length(coord) + 0.6 * abs(sin(u_time * 0.3 / 9.0))) * 0.3;
  // color.g += abs(0.1 + length(coord) - 6. * abs(sin(u_time * 0.5)));
 
-//color.r += abs(0.1 + length(coord) - 0.9 * abs(sin(u_time * 0.9 / 6.0)));//
+color.r += abs(0.1 + length(coord) - 0.9 * abs(sin(u_time * 0.9 / 6.0)));//
    // color.g += abs(0.1 + length(coord) - 0.1 * abs(sin(u_time * 0.6 / 4.0)));
     //color.b += abs(0.1 + length(coord) - 0.6 * abs(sin(u_time * 0.3 / 9.0)));
 
@@ -104,16 +104,16 @@ float pct = abs(sin(u_time)) * 0.6;
 
  color = mix(colorA, color, pct);
  //mixing = 
-//color.r -= 0.1 + length(coord) + 4.;
+color.r -= 0.1 + length(coord) + 4.;
 
   //gl_FragColor = vec4( 0.05/color, 1.);
 
   //full
   //gl_FragColor = texture2D(u_text0,coord);
-  gl_FragColor += vec4(0.7/color + length(coord.x + 900. )/900. * 0.08 + length(coord.y + 500.)/500. * 0.08, 1.);
+  gl_FragColor += vec4(0.7/color + length(coord.x + 900. )/900. * 0.08 + length(coord.y + 900.)/900. * 0.08, 1.);
 
   //DIAMOND
-  //gl_FragColor += vec4(0.1/color + length(coord.x + 950.)/950. * 0.8 + length(coord.y + 250.)/350. * 0.8, 1.);  
+  //gl_FragColor += vec4(0.1/color + length(coord.x + 650.)/650. * 0.8 + length(coord.y + 650.)/650. * 0.8, 1.);  
 
 
  //color = mix(colorB, color, pct);

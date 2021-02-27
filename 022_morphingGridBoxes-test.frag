@@ -87,11 +87,11 @@ color = vec3(0.0, 0.0, 0.0);
   // len = length(coord.x - vec2(0.5, - 0.5));
 
    // color.b+= sin(len * 0.04 + angle * 90.+ u_time);
-   color.g+= sin(len * 0.04 + angle - 90.+ u_time);
-    color.g+= sin(len * -0.04 + angle - 90.+ u_time);
+   //color.g+= sin(len * 0.04 + angle - 90.+ u_time);
+   // color.g+= sin(len * -0.04 + angle - 90.+ u_time);
   color.r+= sin(len * -0.07 + angle * 0.09+ u_time);
 
-    color.g+= sin(len * 0.04 + angle - 0.09+ u_time);
+   // color.g+= sin(len * 0.04 + angle - 0.09+ u_time);
   //   color.g+= sin(len * -0.04 + angle - 90.+ u_time);
   // color.r+= sin(len * -0.07 + angle * 0.09+ u_time);
 
@@ -110,24 +110,24 @@ color = vec3(0.0, 0.0, 0.0);
 
 //SHADER TWO - KEEP WITH DIFFERETN PART TWO
 //******stage 2 - SHADER********
- color += abs(cos(coord.x / 60.0 + muv.x) + sin(coord.y / 60.0) - cos(u_time) * sin(u_time/ 1.)) *  13.;
-  //color += abs(cos(coord.y / 90.0 ) + sin(coord.x / 60.0) - cos(u_time / 0.4) * sin(u_time/ 0.5)) * 3. ;
+ color += abs(cos(coord.x / 40.0 + muv.x) + sin(coord.y / 40.0) - cos(u_time) * sin(u_time/ 1.)) *  13.;
+  color += abs(cos(coord.y / 20.0 ) + sin(coord.x / 20.0) - cos(u_time / 0.4) * sin(u_time/ 0.5)) * 3. ;
    //color += abs(cos(coord.x / 90.0 ) + sin(coord.y / 60.0) - cos(u_time / 0.4) * sin(u_time/ 0.5)) * 3. ;
   
   
   ///SAHDER ONE KEEP IT - changed size to coord.xy
   //******SHADER********
-   color += abs(cos(size / 9.0 ) + sin(coord.x / 80.0) - cos(size/ 0.4) * sin(size/ 0.5)) * 3. ;
+  // color += abs(cos(size / 9.0 ) + sin(coord.x / 80.0) - cos(size/ 0.4) * sin(size/ 0.5)) * 3. ;
   
   //MOUSE
     //color += abs(cos(coord.x / 10.0) + sin(coord.y / 10.0) - cos(u_time / 0.4) * sin(u_time/ 0.5)) * 3.;
     //******stage one - SHADER********
-    color += abs(cos(coord.x / 20.0 ) + sin(coord.y / 20.0) - cos(u_time / 0.4) * sin(u_time/ 0.5)) * 3.;
+   // color += abs(cos(coord.x / 20.0 ) + sin(coord.y / 20.0) - cos(u_time / 0.4) * sin(u_time/ 0.5)) * 3.;
     vec3 sm = vec3(smoothstep(0.6,0.196,coord.x));
    //vec2 test = vec2(coord.x / coord.x);
  
-    coord += vec2(0.9 / muv.x * sin(muv.x * coord.y+ u_time + 0.3 * muv.x) + 0.8, 0.4 / muv.x * sin(coord.x + u_time + 0.3 * muv.x) + 1.6) * 3. + muv.y;
-      coord += vec2(5./ coord.y * sin(coord.x * coord.y+ u_time + 0.3 * coord.x) + 0.8, 0.4 * sin(coord.x + u_time + 0.3 * muv.x) + 1.6) * 3. + muv.y;
+    //coord += vec2(0.9 / muv.x * sin(muv.x * coord.y+ u_time + 0.3 * muv.x) + 0.8, 0.4 / muv.x * sin(coord.x + u_time + 0.3 * muv.x) + 1.6) * 3. + muv.y;
+     // coord += vec2(5./ coord.y * sin(coord.x * coord.y+ u_time + 0.3 * coord.x) + 0.8, 0.4 * sin(coord.x + u_time + 0.3 * muv.x) + 1.6) * 3. + muv.y;
      //coord += vec2(0.9 / coord.y * sin(coord.x * n + u_time + 0.3 * n) + 0.8, 0.4 * sin(coord.x + u_time + 0.3 * muv.x) + 1.6) * 3. + muv.y;
 
   
@@ -141,8 +141,8 @@ color = vec3(0.0, 0.0, 0.0);
 
   //******stage one - SHADER********
 //COOL EFFECT 2
-   color.g += abs(0.1 + length(muv.y) - 0.2 * abs(sin(u_time * 0.9 / 4.0)));
-   color.r += abs(0.1 + length(muv.y) + 0.6 * abs(sin(u_time * 0.3 / 9.0))) * 0.3;
+  // color.g += abs(0.1 + length(muv.y) - 0.2 * abs(sin(u_time * 0.9 / 4.0)));
+ //  color.r += abs(0.1 + length(muv.y) + 0.6 * abs(sin(u_time * 0.3 / 9.0))) * 0.3;
   //color.g += abs(0.1 + length(coord) - 6. * abs(sin(u_time * 0.5)));
  
 
@@ -151,9 +151,9 @@ vec3 colorA = vec3(1.0, 0.8353, 0.0);
 vec3 colorB = vec3(1.0, 0.8353, 0.0);
 float pct = abs(sin(u_time)) * 0.6;
 
- color.g += cos(muv.x / 20.0 ) + sin(muv.y / 20.0) - cos(muv.y ) * sin(u_time/ 1.);
+// color.g += cos(muv.x / 20.0 ) + sin(muv.y / 20.0) - cos(muv.y ) * sin(u_time/ 1.);
 
- color = mix(colorA, color - muv.y, pct);
+// color = mix(colorA, color - muv.y, pct);
  //mixing = 
 //color.r -= 0.1 + length(coord) + 4.;
 
@@ -163,9 +163,9 @@ float pct = abs(sin(u_time)) * 0.6;
   //gl_FragColor = texture2D(u_text0,coord);
    vec3 hsbtemp = rgb2hsb(color);
    //******stage 4 - color change --- SHADER********
-  color = hsb2rgb(vec3(hsbtemp[1], hsbtemp[0]*0.5, hsbtemp[2]*0.5));
+  ////color = hsb2rgb(vec3(hsbtemp[1], hsbtemp[0]*0.5, hsbtemp[2]*0.5));
  // gl_FragColor += vec4(0.7/color + length(coord.x + 500. )/790. * 0.08 + length(coord.y + 500.)/300. *0.00018, 1.);
-  gl_FragColor += vec4(0.7/color + length(coord.x + 500. )/700. * 0.08 + length(coord.y + 500.)/300. *0.00018, 1.);
+  gl_FragColor += vec4(0.9/color + length(coord.x + 500. )/700. * 0.08 + length(coord.y + 500.)/300. *0.00018, 1.);
 
   //DIAMOND
  // gl_FragColor += vec4(0.1/color + length(coord.x + 550.)/750. * 0.8 + length(coord.y + 250.)/750. * 0.8, 1.);  
